@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Touche" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/text_size_key</item>
+        <item name="android:textColor">@color/turquoise_touche</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+</resources>

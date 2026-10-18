@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fond_clair">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <!-- ZONE DU HAUT -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/zoneHaut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_top_zone"
+        android:elevation="8dp"
+        android:paddingHorizontal="@dimen/margin_lateral"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:gravity="center"
+            android:text="@string/titre"
+            android:textColor="@color/blanc"
+            android:textSize="@dimen/text_size_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Spinner
+            android:id="@+id/spDeviseSource"
+            android:layout_width="@dimen/spinner_width"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:background="@null"
+            app:layout_constraintTop_toBottomOf="@id/tvTitre"
+            app:layout_constraintBottom_toTopOf="@id/separateur"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMontant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/montant_initial"
+            android:textColor="@color/blanc"
+            android:textSize="@dimen/text_size_amount"
+            app:layout_constraintTop_toTopOf="@id/spDeviseSource"
+            app:layout_constraintBottom_toBottomOf="@id/spDeviseSource"
+            app:layout_constraintStart_toEndOf="@id/spDeviseSource"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/separateur"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/separateur_blanc"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:layout_constraintTop_toBottomOf="@id/spDeviseSource"
+            app:layout_constraintBottom_toTopOf="@id/btnInverser"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnInverser"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/inverser_desc"
+            android:src="@drawable/ic_swap"
+            app:layout_constraintTop_toBottomOf="@id/separateur"
+            app:layout_constraintBottom_toTopOf="@id/spDeviseCible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Spinner
+            android:id="@+id/spDeviseCible"
+            android:layout_width="@dimen/spinner_width"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:background="@null"
+            app:layout_constraintTop_toBottomOf="@id/btnInverser"
+            app:layout_constraintBottom_toTopOf="@id/btnConvertir"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvResultat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/blanc"
+            android:textSize="@dimen/text_size_amount"
+            app:layout_constraintTop_toTopOf="@id/spDeviseCible"
+            app:layout_constraintBottom_toBottomOf="@id/spDeviseCible"
+            app:layout_constraintStart_toEndOf="@id/spDeviseCible"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btnConvertir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/convertir"
+            android:textColor="@color/turquoise_fond"
+            android:textStyle="bold"
+            android:backgroundTint="@color/blanc"
+            app:cornerRadius="@dimen/corner_radius_button"
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintTop_toBottomOf="@id/spDeviseCible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- CLAVIER : TableLayout 4 x 3 -->
+    <TableLayout
+        android:id="@+id/clavier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:stretchColumns="*"
+        android:padding="@dimen/spacing_small"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableRow android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <Button android:id="@+id/btn7" style="@style/Touche" android:text="@string/k7" />
+            <Button android:id="@+id/btn8" style="@style/Touche" android:text="@string/k8" />
+            <Button android:id="@+id/btn9" style="@style/Touche" android:text="@string/k9" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <Button android:id="@+id/btn4" style="@style/Touche" android:text="@string/k4" />
+            <Button android:id="@+id/btn5" style="@style/Touche" android:text="@string/k5" />
+            <Button android:id="@+id/btn6" style="@style/Touche" android:text="@string/k6" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <Button android:id="@+id/btn1" style="@style/Touche" android:text="@string/k1" />
+            <Button android:id="@+id/btn2" style="@style/Touche" android:text="@string/k2" />
+            <Button android:id="@+id/btn3" style="@style/Touche" android:text="@string/k3" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <Button android:id="@+id/btnC" style="@style/Touche"
+                android:textColor="@color/rouge_clair" android:text="@string/k_clear" />
+            <Button android:id="@+id/btn0" style="@style/Touche" android:text="@string/k0" />
+            <Button android:id="@+id/btnPoint" style="@style/Touche" android:text="@string/k_point" />
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

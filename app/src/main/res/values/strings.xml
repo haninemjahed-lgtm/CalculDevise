@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Currency Converter</string>
+    <string name="titre">Currency Converter</string>
+    <string name="inverser_desc">Inverser les devises</string>
+    <string name="convertir">Convertir</string>
+    <string name="montant_initial">0</string>
+    <string name="toast_montant">Veuillez saisir un montant</string>
+
+    <string name="k0">0</string>
+    <string name="k1">1</string>
+    <string name="k2">2</string>
+    <string name="k3">3</string>
+    <string name="k4">4</string>
+    <string name="k5">5</string>
+    <string name="k6">6</string>
+    <string name="k7">7</string>
+    <string name="k8">8</string>
+    <string name="k9">9</string>
+    <string name="k_point">.</string>
+    <string name="k_clear">C</string>
+
+    <string-array name="devises">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>TND</item>
+        <item>GBP</item>
+        <item>JPY</item>
+        <item>CAD</item>
+    </string-array>
+</resources>
